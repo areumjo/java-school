@@ -1,4 +1,4 @@
-package com.lambdaschool.school.controller.handlers;
+package com.lambdaschool.school.handlers;
 
 import com.lambdaschool.school.exceptions.ResourceNotFoundException;
 import com.lambdaschool.school.model.ErrorDetail;
