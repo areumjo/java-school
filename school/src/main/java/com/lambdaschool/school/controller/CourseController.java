@@ -17,6 +17,7 @@ public class CourseController
     @Autowired
     private CourseService courseService;
 
+    // localhost:2019/courses/courses
     @GetMapping(value = "/courses", produces = {"application/json"})
     public ResponseEntity<?> listAllCourses()
     {
@@ -24,10 +25,14 @@ public class CourseController
         return new ResponseEntity<>(myCourses, HttpStatus.OK);
     }
 
+    // localhost:2019/courses/studcount
     @GetMapping(value = "/studcount", produces = {"application/json"})
     public ResponseEntity<?> getCountStudentsInCourses()
     {
-        return new ResponseEntity<>(courseService.getCountStudentsInCourse(), HttpStatus.OK);
+
+        ArrayList<CountStudentsInCourses> myList = courseService.getCountStudentsInCourse();
+//        myList.sort((q1, q2) -> q1.getCoursename().compareToIgnoreCase(q2.getCoursename()));
+        return new ResponseEntity<>(myList, HttpStatus.OK);
     }
 
     @DeleteMapping("/courses/{courseid}")
